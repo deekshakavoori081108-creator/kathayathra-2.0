@@ -1,6 +1,9 @@
 // Client API client for communicating with Katha Yatra Backend
 
-const API_BASE = '/api';
+const API_BASE = (
+  import.meta.env.VITE_API_URL ||
+  'https://kathayathra-2-0.onrender.com'
+).replace(/\/+$/, '') + '/api';
 
 export async function createUser(userData) {
   const res = await fetch(`${API_BASE}/users`, {
